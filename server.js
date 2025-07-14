@@ -3,13 +3,14 @@ import app from "./app.js";
 import { Server } from "socket.io";
 import chatSocket from "./src/sockets/chatSockets.js";
 import aceitarSolicitacao from "./src/controllers/aceitarSolicitacaoController.js";
+import dotenv from "dotenv";
 
+dotenv.config();
 const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: { origin: "*" },
 });
-
 app.use(aceitarSolicitacao(io));
 
 chatSocket(io); // Conecta lógica dos sockets
