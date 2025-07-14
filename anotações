@@ -1,0 +1,17 @@
+// controllers/homeController.js
+banco de dados: chamada.
+
+
+const path = require("path");
+const db = require("../config/db");
+
+exports.showHome = async (req, res) => {
+  try {
+    const [rows] = await db.query("SELECT * FROM usuarios");
+    console.log(rows); // Ver dados no terminal
+  } catch (err) {
+    console.error("Erro ao consultar banco:", err);
+  }
+
+  res.sendFile(path.join(__dirname, "..", "pages", "login.html"));
+};

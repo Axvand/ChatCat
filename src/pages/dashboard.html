@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+
+    <title>Document</title>
+   
+  </head>
+  <body class="body">
+    <nav class="nav">
+      <div class="logoConteiner">
+        <h1 style="font-family: Arial, Helvetica, sans-serif">ChatCat</h1>
+        <img
+          src="imgs/iconseimgs/chat.png"
+          style="margin-bottom: 5px"
+          height="30px"
+          alt=""
+        />
+      </div>
+      <button class="logoutBtn" id="logoutBtn">Sair</button>
+    </nav>
+    <!-- --------------------------------------- -->
+    <div class="barraDeBusca">
+      <br />
+      <br />
+      <input class="campoDeTexto"
+      type="text"
+      id="buscaUsuario"
+      placeholder="Digite o nome do usuário"
+      />
+      <button class="btnBuscar" id="btnBuscar"> <img src="imgs/iconseimgs/lupa (1).png" height="20px" class="lopaBuscaImg"></img></button>
+    </div>
+    <br />
+    <!-- ============================================ -->
+    
+    <div id="resultadosBusca"></div>
+    <br />
+    
+    <!-- =============================================================     -->
+    <div class="dashboard">
+      <div class="profileConteiner">
+        <img
+          id="avatarUsuario"
+          class="avatar"
+          src="/avatars/default.jpg"
+          alt="Avatar"
+          height="80px"
+        />
+      </div>
+      <h2 id="nomeUsuario">Usuário</h2>
+      <p id="humorUsuario">Humor: ---</p>
+      <p id="fraseUsuario" class="frase">"---"</p>
+      <!-- <button
+        class="btn-editar"
+      >
+        Editar Perfil
+      </button> -->
+    </div>
+    <br />
+    <!-- =============================================================     -->
+    
+    <br /><br />
+    
+    
+    <!-- ============================ -->
+    <h3>Solicitações Recebidas</h3>
+    <ul id="solicitacoesRecebidas"></ul>
+    <br>
+    <br>
+    <br>
+    <!-- ============================ -->
+    <form id="perfilForm">
+      <label for="humor">Como você está se sentindo?</label>
+      <input type="text" id="humor" name="humor" required /><br />
+    
+      <label for="frase">Sua frase de hoje:</label>
+      <input type="text" id="frase" name="frase" required /><br />
+      
+      <label>Escolha um avatar:</label>
+      <div id="avatarContainer">
+        <img
+        src="/imgs/avatars/1.jpg"
+        class="avatar-option"
+        data-avatar="1.jpg"
+        />
+        <img
+        src="/imgs/avatars/2.jpg"
+        class="avatar-option"
+        data-avatar="2.jpg"
+        />
+        <img
+        src="/imgs/avatars/3.jpg"
+        class="avatar-option"
+        data-avatar="3.jpg"
+        />
+        <!-- Adicione quantos quiser -->
+      </div>
+      
+      <input type="hidden" name="avatar" id="avatarSelecionado" required />
+      <button type="submit">Salvar perfil</button>
+    </form>
+    <!-- --------------------------------------- -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="js/maindash.js"></script>
+  </body>
+</html>

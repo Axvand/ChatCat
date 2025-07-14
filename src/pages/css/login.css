@@ -1,0 +1,153 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+  background-color: #111;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(to right, orange, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* inputs, botões, etc (como já passado antes)... */
+
+/* Container central para login/cadastro */
+form,
+#loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px 25px;
+  background-color: #111;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 350px;
+  align-items: center;
+}
+
+/* Imagem + título ChatCat */
+body::before {
+  content: "";
+  display: block;
+  height: 120px;
+  width: 120px;
+  background-image: url("");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ChatCat com degradê */
+h2::before {
+  content: "ChatCat";
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(to right, orange, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Inputs e botões */
+input,
+button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+input {
+  background-color: #222;
+  color: #fff;
+}
+
+button {
+  background: linear-gradient(to right, orange, yellow);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+a {
+  color: orange;
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Mensagem de erro */
+#mensagemErro {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Responsividade extra */
+@media (max-width: 400px) {
+  body::before {
+    height: 90px;
+    width: 90px;
+  }
+
+  h2::before {
+    font-size: 22px;
+  }
+
+  form,
+  #loginForm {
+    padding: 20px;
+  }
+}
