@@ -44,7 +44,7 @@
 //   localStorage.setItem("sala", nomeSala);
 //   window.location.href = "sala.html";
 // });
-const socket = io("http://localhost:3000");
+const socket = io("https://chatcat-1-5v1n.onrender.com/");
 
 // Pegando nome e sala do localStorage
 const nome = localStorage.getItem("nome");

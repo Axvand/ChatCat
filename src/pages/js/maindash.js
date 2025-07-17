@@ -6,7 +6,7 @@ if (!token) {
   window.location.href = "login.html";
 } else {
   // Faz a requisição para a rota protegida (de dados)
-  fetch("http://localhost:3000/api/dados-dashboard", {
+  fetch("https://chatcat-1-5v1n.onrender.com/api/dados-dashboard", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -70,7 +70,7 @@ document.getElementById("perfilForm").addEventListener("submit", async (e) => {
     avatar: document.getElementById("avatarSelecionado").value,
   };
   try {
-    const res = await fetch("http://localhost:3000/perfil", {
+    const res = await fetch("https://chatcat-1-5v1n.onrender.com/perfil", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +93,7 @@ document.getElementById("perfilForm").addEventListener("submit", async (e) => {
 // const nome = localStorage.getItem("nome");
 // const token = localStorage.getItem("token");
 
-fetch("http://localhost:3000/dashboardperfil", {
+fetch("https://chatcat-1-5v1n.onrender.com/dashboardperfil", {
   headers: {
     Authorization: "Bearer " + token,
   },
@@ -116,7 +116,7 @@ document.getElementById("btnBuscar").addEventListener("click", async () => {
   const token = localStorage.getItem("token");
 
   const res = await fetch(
-    `http://localhost:3000/buscar?nome=${encodeURIComponent(termo)}`,
+    `https://chatcat-1-5v1n.onrender.com/buscar?nome=${encodeURIComponent(termo)}`,
     {
       headers: { Authorization: "Bearer " + token },
     }
@@ -150,7 +150,7 @@ document
       const paraId = e.target.dataset.id;
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:3000/solicitar", {
+      const res = await fetch("https://chatcat-1-5v1n.onrender.com/solicitar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -177,7 +177,7 @@ async function carregarSolicitacoesRecebidas() {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch("http://localhost:3000/recebidas", {
+    const res = await fetch("https://chatcat-1-5v1n.onrender.com/recebidas", {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -210,7 +210,7 @@ document
       const token = localStorage.getItem("token");
 
       try {
-        const res = await fetch(`http://localhost:3000/recusar/${id}`, {
+        const res = await fetch(`https://chatcat-1-5v1n.onrender.com/recusar/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: "Bearer " + token,
@@ -251,7 +251,7 @@ document.addEventListener("click", async (e) => {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("http://localhost:3000/aceitar", {
+      const res = await fetch("https://chatcat-1-5v1n.onrender.com/aceitar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

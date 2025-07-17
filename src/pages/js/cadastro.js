@@ -5,7 +5,7 @@ form.addEventListener("submit", async (e) => {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  const res = await fetch("http://localhost:3000/cadastro", {
+  const res = await fetch("https://chatcat-1-5v1n.onrender.com/cadastro", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

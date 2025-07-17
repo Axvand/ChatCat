@@ -7,7 +7,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   const senha = e.target.senha.value;
 
   try {
-    const resposta = await fetch("http://localhost:3000/login", {
+    const resposta = await fetch("https://chatcat-1-5v1n.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, senha }), //aplicar filtro
