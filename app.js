@@ -5,7 +5,7 @@ import authRoutes from "./src/routes/authRouter.js";
 import loginRoutes from "./src/routes/loginRoutes.js";
 import logar from "./src/routes/logar.js";
 import cors from "cors";
-import dadosProtegidos from "./src/routes/dadosProtegidos.js";
+import dadosprotegidos from "./src/routes/dadosprotegidos.js";
 import perfilRouter from "./src/routes/perfilRouter.js";
 import buscarRouter from "./src/routes/buscarRouter.js";
 import solicitacaoRouter from "./src/routes/solicitacaoRouter.js";
@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/", dadosProtegidos);
+app.use("/", dadosprotegidos);
 
 // app.use((req, res, next) => {
 //   res.set("Cache-Control", "no-store"); // O mais seguro
