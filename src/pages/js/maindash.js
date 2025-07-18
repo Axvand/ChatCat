@@ -5,8 +5,10 @@ if (!token) {
   // Se não tiver token, redireciona para o login
   window.location.href = "login.html";
 } else {
+  const rota1 = "https://chatcat-1-5v1n.onrender.com/api/dados-dashboard";
+  const rotalocal1 = "http://localhost:3006/api/dados-dashboard";
   // Faz a requisição para a rota protegida (de dados)
-  fetch("https://chatcat-1-5v1n.onrender.com/api/dados-dashboard", {
+  fetch(rota1, {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -70,7 +72,9 @@ document.getElementById("perfilForm").addEventListener("submit", async (e) => {
     avatar: document.getElementById("avatarSelecionado").value,
   };
   try {
-    const res = await fetch("https://chatcat-1-5v1n.onrender.com/perfil", {
+    const rota2 = "https://chatcat-1-5v1n.onrender.com/perfil";
+    const rotalocal2 = "http://localhost:3006/perfil";
+    const res = await fetch(rota2, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,8 +96,10 @@ document.getElementById("perfilForm").addEventListener("submit", async (e) => {
 // Carrega perfil formatado
 // const nome = localStorage.getItem("nome");
 // const token = localStorage.getItem("token");
+const rota3 = "https://chatcat-1-5v1n.onrender.com/dashboardperfil";
+const rotalocal3 = "http://localhost:3006/dashboardperfil";
 
-fetch("https://chatcat-1-5v1n.onrender.com/dashboardperfil", {
+fetch(rota3, {
   headers: {
     Authorization: "Bearer " + token,
   },
@@ -115,12 +121,16 @@ document.getElementById("btnBuscar").addEventListener("click", async () => {
   const termo = document.getElementById("buscaUsuario").value;
   const token = localStorage.getItem("token");
 
-  const res = await fetch(
-    `https://chatcat-1-5v1n.onrender.com/buscar?nome=${encodeURIComponent(termo)}`,
-    {
-      headers: { Authorization: "Bearer " + token },
-    }
-  );
+  const rota4 = `https://chatcat-1-5v1n.onrender.com/buscar?nome=${encodeURIComponent(
+    termo
+  )}`;
+  const rotalocal4 = `http://localhost:3006/buscar?nome=${encodeURIComponent(
+    termo
+  )}`;
+
+  const res = await fetch(rota4, {
+    headers: { Authorization: "Bearer " + token },
+  });
 
   const usuarios = await res.json();
 
@@ -150,7 +160,10 @@ document
       const paraId = e.target.dataset.id;
       const token = localStorage.getItem("token");
 
-      const res = await fetch("https://chatcat-1-5v1n.onrender.com/solicitar", {
+      const rota5 = "https://chatcat-1-5v1n.onrender.com/solicitar";
+      const rotalocal5 = "http://localhost:3006/solicitar";
+
+      const res = await fetch(rota5, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -175,9 +188,10 @@ document
 
 async function carregarSolicitacoesRecebidas() {
   const token = localStorage.getItem("token");
-
+  const rota6 = "https://chatcat-1-5v1n.onrender.com/recebidas";
+  const rotalocal6 = "http://localhost:3006/recebidas";
   try {
-    const res = await fetch("https://chatcat-1-5v1n.onrender.com/recebidas", {
+    const res = await fetch(rota6, {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -209,8 +223,11 @@ document
       const id = e.target.dataset.id;
       const token = localStorage.getItem("token");
 
+      const rota7 = `https://chatcat-1-5v1n.onrender.com/recusar/${id}`;
+      const rotalocal7 = `http://localhost:3006/recusar/${id}`;
+
       try {
-        const res = await fetch(`https://chatcat-1-5v1n.onrender.com/recusar/${id}`, {
+        const res = await fetch(rota7, {
           method: "DELETE",
           headers: {
             Authorization: "Bearer " + token,
@@ -251,7 +268,9 @@ document.addEventListener("click", async (e) => {
     const token = localStorage.getItem("token");
 
     try {
-      const res = await fetch("https://chatcat-1-5v1n.onrender.com/aceitar", {
+      const rota8 = "https://chatcat-1-5v1n.onrender.com/aceitar";
+      const rotalocal8 = "http://localhost:3006/aceitar";
+      const res = await fetch(rota8, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

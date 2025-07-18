@@ -1,50 +1,7 @@
-// const socket = io();
+const rota1 = "https://chatcat-1-5v1n.onrender.com";
+const rotalocal1 = "http://localhost:3006";
 
-// // Recupera nome e sala (supondo que você salva isso no localStorage ao aceitar o chat)
-// const nome = localStorage.getItem("nome");
-// const sala = localStorage.getItem("sala");
-
-// // Entra na sala
-// socket.emit("entrarSala", { nome, sala });
-
-// const input = document.getElementById("mensagemInput");
-// const form = document.getElementById("formMensagem");
-// const mensagensDiv = document.getElementById("mensagens");
-// const digitandoDiv = document.getElementById("digitando");
-
-// // Quando alguém está digitando
-// input.addEventListener("input", () => {
-//   socket.emit("digitando", { sala, texto: input.value });
-// });
-
-// // Quando envia mensagem
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const msg = input.value.trim();
-//   if (msg) {
-//     socket.emit("mensagem", { sala, nome, texto: msg });
-//     input.value = "";
-//     socket.emit("digitando", { sala, texto: "" }); // limpa aviso de digitação
-//   }
-// });
-
-// // Recebe mensagem
-// socket.on("mensagem", ({ nome, texto }) => {
-//   const p = document.createElement("p");
-//   p.textContent = `${nome}: ${texto}`;
-//   mensagensDiv.appendChild(p);
-//   digitandoDiv.innerText = ""; // limpa se alguém estava digitando
-// });
-
-// // Mostra digitação em tempo real
-// socket.on("digitando", ({ nome, texto }) => {
-//   digitandoDiv.innerText = texto ? `${nome} está digitando: ${texto}` : "";
-// });
-// socket.on("iniciarChat", ({ nomeSala }) => {
-//   localStorage.setItem("sala", nomeSala);
-//   window.location.href = "sala.html";
-// });
-const socket = io("https://chatcat-1-5v1n.onrender.com/");
+const socket = io(rota1);
 
 // Pegando nome e sala do localStorage
 const nome = localStorage.getItem("nome");
@@ -80,6 +37,8 @@ socket.on("mensagem", ({ nome, texto }) => {
   const div = document.createElement("div");
   div.innerHTML = `<strong>${nome}:</strong> ${texto}`;
   chat.appendChild(div);
+
+  chat.scrollTop = chat.scrollHeight;
 });
 
 // Mostrar o texto em tempo real que o outro está digitando
@@ -101,5 +60,5 @@ socket.on("digitando", ({ nome, texto }) => {
   clearTimeout(preview.timeout);
   preview.timeout = setTimeout(() => {
     preview.remove();
-  }, 2000);
+  }, 3000);
 });

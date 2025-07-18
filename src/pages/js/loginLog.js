@@ -6,8 +6,11 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   const email = e.target.email.value;
   const senha = e.target.senha.value;
 
+  const rota1 = "https://chatcat-1-5v1n.onrender.com/login";
+  const rotalocal1 = "http://localhost:3006/login";
+
   try {
-    const resposta = await fetch("https://chatcat-1-5v1n.onrender.com/login", {
+    const resposta = await fetch(rota1, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, senha }), //aplicar filtro
